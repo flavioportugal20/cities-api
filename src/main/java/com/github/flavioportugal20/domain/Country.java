@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity(name = "Country")
 @Table(name = "pais")
@@ -25,7 +26,7 @@ public class Country {
 
   @JsonIgnore
   @OneToMany(mappedBy = "country")
-  private List<State> states = new ArrayList<>();
+  private List<State> staties = new ArrayList<>();
 
   public Country() {
   }
@@ -51,10 +52,19 @@ public class Country {
   }
 
   public List<State> getStates() {
-    return states;
+    return staties;
   }
 
-  public void setStates(List<State> states) {
-    this.states = states;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Country country = (Country) o;
+    return Objects.equals(id, country.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }

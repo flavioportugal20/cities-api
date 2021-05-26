@@ -1,18 +1,20 @@
 package com.github.flavioportugal20.dto;
 
 import com.github.flavioportugal20.domain.Country;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class CountryDTO {
+public class CountryDTO implements Serializable {
+  private static final long serialVersionUID = 1L;
 
   private Long id;
   private String name;
   private String portugueseName;
   private String code;
   private Integer bacen;
-
-  private List<StateDTO> states = new ArrayList<>();
 
   public CountryDTO() {
   }
@@ -23,7 +25,6 @@ public class CountryDTO {
     this.portugueseName = country.getPortugueseName();
     this.code = country.getCode();
     this.bacen = country.getBacen();
-    this.states = (List<StateDTO>) country.getStates().stream().map(x -> new StateDTO(x));
   }
 
   public Long getId() {
@@ -46,11 +47,4 @@ public class CountryDTO {
     return bacen;
   }
 
-  public List<StateDTO> getStates() {
-    return states;
-  }
-
-  public void setStates(List<StateDTO> states) {
-    this.states = states;
-  }
 }

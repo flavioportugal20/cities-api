@@ -2,7 +2,10 @@ package com.github.flavioportugal20.dto;
 
 import org.springframework.data.geo.Point;
 
-public class PointDTO {
+import java.io.Serializable;
+
+public class PointDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Double latitude;
     private Double longitude;

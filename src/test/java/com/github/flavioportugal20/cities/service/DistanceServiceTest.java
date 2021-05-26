@@ -5,9 +5,13 @@ import static org.assertj.core.data.Offset.offset;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.BDDMockito.given;
 
-import com.github.flavioportugal20.cities.entities.City;
-import com.github.flavioportugal20.cities.repositories.CityRepository;
 import java.util.Arrays;
+
+import com.github.flavioportugal20.domain.City;
+import com.github.flavioportugal20.domain.State;
+import com.github.flavioportugal20.repositories.CityRepository;
+import com.github.flavioportugal20.services.DistanceService;
+import com.github.flavioportugal20.services.EarthRadius;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +33,14 @@ class DistanceServiceTest {
 
   @BeforeEach
   public void setUp() {
-    ibate = new City(4929L, "Ibaté", 26, 3519303, "(-21.95840072631836,-47.98820114135742)",
-        new Point(-21.95840072631836, -47.98820114135742));
+    State state = new State();
+    state.setId(26L);
+
+    ibate = new City(4929L, "Ibaté", 3519303, "(-21.95840072631836,-47.98820114135742)",
+        new Point(-21.95840072631836, -47.98820114135742), state);
     saoCarlos =
-        new City(5254L, "São Carlos", 26, 3548906, "(-22.01740074157715,-47.88600158691406)",
-            new Point(-22.01740074157715, -47.88600158691406));
+        new City(5254L, "São Carlos", 3548906, "(-22.01740074157715,-47.88600158691406)",
+            new Point(-22.01740074157715, -47.88600158691406), state);
   }
 
   @Test

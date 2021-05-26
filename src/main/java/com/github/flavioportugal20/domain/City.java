@@ -6,6 +6,7 @@ import org.hibernate.annotations.TypeDefs;
 import org.springframework.data.geo.Point;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "cidade")
@@ -19,7 +20,6 @@ public class City {
 
   @Column(name = "nome")
   private String name;
-  private Integer uf;
   private Integer ibge;
 
   @Column(name = "lat_lon")
@@ -36,14 +36,14 @@ public class City {
   public City() {
   }
 
-  public City(final Long id, final String name, final Integer uf, final Integer ibge,
-              final String geolocation, final Point location) {
+  public City(final Long id, final String name, final Integer ibge, final String geolocation, final Point location, final State state) {
     this.id = id;
     this.name = name;
-    this.uf = uf;
+    this.state = state;
     this.ibge = ibge;
     this.geolocation = geolocation;
     this.location = location;
+    this.state = state;
   }
 
   public Long getId() {
@@ -52,10 +52,6 @@ public class City {
 
   public String getName() {
     return name;
-  }
-
-  public Integer getUf() {
-    return uf;
   }
 
   public Integer getIbge() {
@@ -76,5 +72,18 @@ public class City {
 
   public void setState(State state) {
     this.state = state;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    City city = (City) o;
+    return Objects.equals(id, city.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }

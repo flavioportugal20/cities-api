@@ -1,4 +1,4 @@
-package com.github.flavioportugal20.services;
+package com.github.flavioportugal20.domain.enums;
 
 public enum EarthRadius {
   METERS("m", 6378168),

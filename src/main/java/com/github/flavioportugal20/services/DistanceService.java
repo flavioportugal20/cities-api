@@ -1,6 +1,7 @@
 package com.github.flavioportugal20.services;
 
 import com.github.flavioportugal20.domain.City;
+import com.github.flavioportugal20.domain.enums.EarthRadius;
 import com.github.flavioportugal20.repositories.CityRepository;
 import com.github.flavioportugal20.utils.StringLocationUtils;
 import org.slf4j.Logger;

@@ -1,10 +1,12 @@
 package com.github.flavioportugal20.dto;
 
 import com.github.flavioportugal20.domain.State;
-import java.util.ArrayList;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class StateDTO {
+public class StateDTO implements Serializable {
+  private static final long serialVersionUID = 1L;
 
   private Long id;
   private String name;
@@ -13,7 +15,6 @@ public class StateDTO {
   private List<Integer> ddd;
 
   private CountryDTO country;
-  private List<CityDTO> cities = new ArrayList<>();
 
   public StateDTO(State state) {
     this.id = state.getId();
@@ -22,7 +23,6 @@ public class StateDTO {
     this.ibge = state.getIbge();
     this.ddd = state.getDdd();
     this.country = new CountryDTO(state.getCountry());
-    this.cities = (List<CityDTO>) state.getCities().stream().map(x -> new CityDTO(x));
   }
 
   public Long getId() {
@@ -49,11 +49,4 @@ public class StateDTO {
     return country;
   }
 
-  public List<CityDTO> getCities() {
-    return cities;
-  }
-
-  public void setCities(List<CityDTO> cities) {
-    this.cities = cities;
-  }
 }
