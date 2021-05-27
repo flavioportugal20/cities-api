@@ -9,9 +9,9 @@ import java.util.Arrays;
 
 import com.github.flavioportugal20.domain.City;
 import com.github.flavioportugal20.domain.State;
+import com.github.flavioportugal20.domain.enums.EarthRadius;
 import com.github.flavioportugal20.repositories.CityRepository;
 import com.github.flavioportugal20.services.DistanceService;
-import com.github.flavioportugal20.services.EarthRadius;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
