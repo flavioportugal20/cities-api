@@ -3,9 +3,6 @@ package com.github.flavioportugal20.dto;
 import com.github.flavioportugal20.domain.Country;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class CountryDTO implements Serializable {
   private static final long serialVersionUID = 1L;
