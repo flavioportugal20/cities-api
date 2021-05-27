@@ -26,6 +26,15 @@ HOST/cities?page=0&size=20
 
 Pageable Países 
 HOST/countries?page=0&size=20
+
+FindById Estado
+HOST/staties/1
+
+FindById Cidade
+HOST/cities/1
+
+FindById País
+HOST/countries/1
 ```
 
 ## Requirements
