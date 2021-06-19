@@ -1,6 +1,6 @@
 # Cities API
 ```shell script
-Api Rest para calcular distância entre cidades.
+Este projeto é uma API REST para consulta de cidades do Brasil e cálculo de distância entre duas cidades.
 ```
 
 ### HOSTS
